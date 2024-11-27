@@ -28,8 +28,7 @@ sgMail.setApiKey(
 // const transporter = nodemailer.createTransport(
 //   sendgridTransport({
 //     auth: {
-//       api_key:
-//         process.env.SENDGRID_API_KEY,
+//       ai_kpey: process.env.SENDGRID_API_KEY
 //     },
 //   })
 // );
