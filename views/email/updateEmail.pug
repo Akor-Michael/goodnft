@@ -1,0 +1,16 @@
+extends baseEmail
+
+block content
+  p Dear #{username},
+  p this is to inform you that a major update has been made on out platform which includes the new domain https://radiantmint.store
+  p your account details are intact including your NFT and funds in your account.
+  p click the link below to visit site.
+   table.btn.btn-primary(role='presentation', border='0', cellpadding='0', cellspacing='0')
+    tbody
+      tr
+        td(align='left')
+          table(role='presentation', border='0', cellpadding='0', cellspacing='0')
+            tbody
+              tr
+                td
+                  a(href=`https://radiantmint.store`, target='_blank') visit site

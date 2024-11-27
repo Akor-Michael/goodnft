@@ -1,0 +1,20 @@
+extends baseEmail
+
+block content
+  p Dear #{username},
+  span Your deposit of 
+  span.bold #{depositedPrice} ETH 
+  span has been successfully processed.
+  p 
+  p Please allow some time for the deposit to reflect in your Mintxplorer account . If you have any questions or need assistance, contact our support team.
+  P Thank you for choosing Mintxplorer
+  p Best regards, Mintxplorer Team
+  table.btn.btn-primary(role='presentation', border='0', cellpadding='0', cellspacing='0')
+    tbody
+      tr
+        td(align='left')
+          table(role='presentation', border='0', cellpadding='0', cellspacing='0')
+            tbody
+              tr
+                td
+                  p

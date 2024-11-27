@@ -1,0 +1,758 @@
+//- doctype html
+//- head
+//-   meta(charset='UTF-8')
+//-   meta(http-equiv='X-UA-Compatible' content='IE=edge')
+//-   meta(name='viewport' content='width=device-width, initial-scale=1.0')
+//-   link(rel='preconnect' href='https://fonts.gstatic.com')
+//-   link(href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap' rel='stylesheet')
+//-     //- link(rel='stylesheet' href='style.css')
+//-   title Artmint Admin Dashbord
+//-   style.
+//-     :root {
+//-         --color-brand--1: #ffb545;
+//-         --color-brand--2: #00c46a;
+//-         --color-dark--1: #2d3439;
+//-         --color-dark--2: #42484d;
+//-         --color-light--1: #aaa;
+//-         --color-light--2: #ececec;
+//-         --color-light--3: rgb(214, 222, 224);
+//-         --color-light--4:#6bd1a2;
+//-         --color-brand--5: #f7ca86;
+//-         --color-brand--6: hsla(35, 95%, 85%, 0.151);
+//-         --color-brand--7: #97ffce27;
+//-         --color-brand--8: hsla(35, 95%, 85%, 0.678);
+//-         --color-brand--9: #97ffce67;
+//-     }
+//-     * {
+//-         margin: 0;
+//-         padding: 0;
+//-         box-sizing: inherit;
+//-     }
+    
+//-     html {
+//-         font-size: 62.5%;
+//-         box-sizing: border-box;
+//-     }
+    
+//-     body {
+//-         font-family: 'Manrope', sans-serif;
+//-         /* color: var(--color-light--2); */
+//-         font-weight: 400;
+//-         line-height: 1.6;
+//-         height: 100vh;
+//-         overscroll-behavior-y: none;
+//-         font-size: 1.6rem;
+    
+//-         background-color: #fff;
+//-         /* padding: 2.5rem; */
+    
+//-         /* display: flex; */
+//-     }
+    
+//-     header{
+//-         background-color:var(--color-brand--1);
+//-         display: flex;
+//-         justify-content: space-between;
+//-         align-items: center;
+//-         /* height: 70px; */
+//-         height: 10vh;
+//-         font-weight: bold;
+//-         font-size: 1.8rem;
+//-         width: 100%;
+//-         padding: 0px 10px;
+//-         border-radius: 4px;
+//-         color: #555;
+//-         letter-spacing: 1px;
+//-         font-size: 2rem;
+//-     }
+//-     .logout{
+//-         /* background-color:var(--color-light--4) ; */
+//-         padding: 5px 14px;
+//-         border-radius: 100px;
+//-         letter-spacing: 1px;
+//-         border:2px solid var(--color-brand--2)
+//-     }
+//-     .logout:hover{
+//-         background-color: var(--color-brand--2) ;
+//-         cursor: pointer;
+//-     }
+//-     /* //////////////////////////////// */
+//-     .not-allowed{
+//-         width: 100vw;
+//-         height: 90vh;
+//-         background-color: #eee;
+//-         display: flex;
+//-         justify-content: center;
+//-         align-items: center;
+//-     }
+//-     .login-box{
+//-         /* margin: 20px auto; */
+//-         border: 2px solid black;
+//-         display: flex;
+//-         flex-direction: column;
+//-         gap:20px;
+//-         padding: 50px;
+//-         border-radius: 7px;
+
+//-     }
+//-     .login-text{
+//-         font-weight: bold;
+//-         font-size: 30px;
+//-         letter-spacing: 1px;
+//-         text-transform: capitalize;
+//-     }
+
+//-     .login-input{
+//-         height: 60px;
+//-         width: 300px;
+//-         border: 1px solid #aaa;
+//-         padding: 5px 10px;
+//-         font-size: 20px;
+//-         border-radius: 7px;
+//-     }
+//-     .login-btn{
+//-         font-size: 20px;
+//-         font-weight: bold;
+//-         padding: 7px 14px;
+//-         border-radius: 7px;
+//-     background-color: var(--color-brand--1);
+//-     text-align: center;
+//-     transition: all 0.3s ease-in;
+//-     }
+
+//-     .login-btn:hover{
+//-     cursor: pointer;
+//-     /* border:2px solid black ; */
+//-     background-color: #00c46a;
+//-     }
+//-     /* ///////////////////////////////////////////////// */
+//-     .content{
+//-         display: grid;
+//-         grid-template-columns: 50rem 1fr;
+//-     }
+//-     .users{
+//-         display: flex;
+//-         flex-direction: column;
+//-         height: 90vh;
+//-         overflow-y:scroll;
+//-         gap:2px;
+
+//-         /* background-color:var(--color-brand--7); */
+//-     /* background-color: var(--color-brand--6); */
+//-     }
+//-     .users-row{
+//-         /* display: grid;
+//-         grid-template-columns: 4fr 1px 1px 3fr; */
+//-         /* gap: 7px; */
+//-         display: flex;
+//-         justify-content: space-between;
+//-         align-items: center;
+//-         border-radius: 4px;
+//-         border: 2px solid var(--color-brand--9);
+//-         background-color: var(--color-brand--6);
+//-         padding: 5px 10px;
+//-         width: 100%;
+//-         /* cursor: pointer; */
+//-         transition: all 0.3s ease-in;
+//-         background-color: #eee9;
+
+//-     }
+
+//-     .users-row:hover{
+//-         cursor: pointer;
+//-         background-color:var(--color-brand--8) ;
+//-         background-color: #ddd;
+//-     }
+//-     .row-profile{
+//-         /* background-color: #ddd; */
+//-         display: flex;
+//-         flex-direction: column;
+
+//-     }
+//-     .user-photo{
+//-         width: 7rem;
+//-         height: 7rem;
+//-         /* background-color: #00c46a; */
+//-         background-color: #ddd;
+//-         border-radius: 400px;
+//-     }
+//-     .username{
+//-         text-align: center;
+//-         color: #555;
+//-     }
+//-     .use_bot{
+//-         padding:10px;
+//-         /* background-color: var(--color-brand--2);
+//-         color:var(--color-brand--2); */
+//-         background-color: #4CAF50;
+//-         color: #4CAF50;
+//-         border: 2px solid white;
+//-         border-radius: 7px;
+//-     }
+//-     .lack_bot{
+//-         padding:10px;
+//-         background-color: var(--color-brand--1);
+//-         color:var(--color-brand--1);
+//-         border: 2px solid white;
+//-         border-radius: 7px;
+//-     }
+//-     .message{
+//-         display:flex;
+//-         flex-direction: column;
+//-         align-items: center;
+//-         justify-content: center;
+//-     }
+//-     .bell{
+//-         font-size: 2.8rem;
+//-         color: #999;
+//-         color: #aaa;
+//-         color: #111;
+//-         font-weight: 700;
+//-         /* color: #ccc; */
+//-     }
+//-     .pending-message{
+//-         font-weight: 700;
+//-         font-size: 1.6rem;
+//-         color: #555;
+//-         /* color: #ccc; */
+//-     }
+//-     .light-color{
+//-     color: #ccc;
+//-     }
+//-     .money-div{
+//-         font-weight: 700;
+//-         /* letter-spacing: 0.5px; */
+//-         color: #555;
+//-         display: flex;
+//-         justify-content: space-between;
+//-         gap: 10px;
+//-         align-items: center;
+//-         /* color: #ccc; */
+//-     }
+
+//-     /* ///////////////////////////// /////////////*/
+//-     .user-details{
+//-         overflow-y: scroll;
+//-         height: 90vh;
+//-         /* display: flex; */
+//-         /* flex-direction: column; */
+//-         /* gap: 30px; */
+//-         /* justify-content: center; */
+//-         /* align-items: center; */
+//-     }
+//-     .loadImg{
+//-         /* width: 40px; */
+//-         height: 40px;
+//-     }
+//-     .details_balance{
+//-         height: fit-content;
+//-         width: 100%;
+//-         /* background-color: var(--color-brand--7); */
+//-         background-color: #eee9;
+//-         padding: 4px 20px;
+//-         border-radius: 10px;
+//-         display: flex;
+//-         flex-direction: column;
+//-         gap: 2px;
+//-         margin-bottom: 50px;
+//-     }
+//-     .balence-div{
+//-         display:flex;
+//-         justify-content: space-between;
+//-         font-weight: 600;
+//-         font-size:2.5rem;
+//-         color: #555;
+//-         /* color: green; */
+//-         font-family:'Helvetica Neue','Arial Narrow', Arial, sans-serif
+//-     }
+//-     .display-username{
+//-         text-align: center;
+//-         margin-bottom: 30px;
+//-     }
+//-     .fee-and-transfer{
+//-         background-color: #eee5;
+//-         margin-top: 20px;
+//-         height: fit-content;
+//-         display: flex;
+//-         flex-wrap: wrap; 
+//-         justify-content: center;
+//-         border-radius: 12px;
+//-         width: fit-content;
+//-         width: 95%;
+//-         /* display:grid;
+//-         grid-template-columns: 1fr 1fr 1fr; */
+//-         column-gap: 25px;
+//-         /* padding: 10px; */
+//-         margin: 0 auto;
+//-         margin-bottom: 50px;
+//-         padding-top: 23px;
+//-         align-items: center;
+//-     }
+//-     .fee-div,.transfer-div,.bot-and-send-money{
+//-         background-color: #00c46a;
+//-         background-color: var(--color-brand--1);
+//-         background-color: #eee;
+//-         padding: 12px;
+//-         border-radius: 12px;
+//-         display: flex;
+//-         flex-direction: column;
+//-         justify-content: space-between;
+//-         height: 17rem;
+//-         width: 25rem;
+//-         margin-bottom: 23px;
+
+//-         /* gap:10px; */
+//-     }
+//-     .mint-div,.withdraw-div{
+//-         display: flex;
+//-         flex-direction: column;
+
+//-     }
+
+//-     .mint-text,.withdraw-text{
+
+//-     }
+//-     .mint-input-div,.withdraw-input-div{
+//-         display: flex;
+//-         justify-content: space-between;
+//-     }
+//-     .input{
+//-         height: 40px;
+//-         border-radius: 12px;
+//-         font-size: 20px;
+//-         padding: 3px;
+//-         width: 50%;
+//-     }
+//-     button{
+//-         font-size: 18px;
+//-         padding:7px 15px;
+//-         border-radius: 12px;
+//-         background-color: var(--color-brand--2);
+//-         cursor: pointer;
+//-     }
+
+//-     .switch-use-bot,.transfer-input-div{
+//-         display: flex;
+//-         justify-content: space-between;
+//-     }
+//-     /* .details_balance{
+
+//-     } */
+
+
+//-     .userNft{
+//-         background-color: #eee5;
+//-         height: fit-content;
+//-         /* height: 30rem; */
+//-         display: flex;
+//-         flex-wrap: wrap; 
+//-         justify-content: center;
+//-         padding: 20px 0px;
+//-         border-radius: 12px;
+//-         margin: 0px 20px ;
+//-         width: fit-content;
+//-         margin-right: 20px;
+//-         margin-bottom: 50px;
+//-     }
+//-     .nft{
+//-         height: 35rem;
+//-         background-color: #eee;
+//-         width: 30rem;
+//-         display: flex;
+//-         flex-direction: column;
+//-         gap: 10px;
+//-         border-radius: 12px;
+//-         overflow:hidden;
+//-         padding: 0px;
+//-         margin: 15px 5px;
+
+//-     }
+//-     .nft-img{
+//-         height: 25rem;
+//-         width: 100%;
+//-         border-top-left-radius: 12px;
+//-         border-top-left-radius: 12px;
+//-     }
+//-     .nft-name{
+//-         margin-left: 10px;
+//-         font-size: 25px;
+//-         font-weight: 600;
+//-         letter-spacing: 1px;
+//-         color: #5557;
+//-     }
+//-     .nft-details{
+//-         margin: 0px 10px;
+//-         font-weight: 600;
+//-         font-size: 18px;
+//-         color: #444;
+//-         margin-bottom: 10px;
+//-         display: flex;
+//-         justify-content: space-between;
+//-         height: fit-content;
+//-         /* padding: 10px; */
+//-     }
+//-     .transactions,.nft-transaction{
+//-         /* background-color: var(--color-brand--7); */
+//-         /* padding: 5px 20px; */
+//-         margin: 5px 20px;
+//-         border: 1px solid #7775;
+//-         border-radius: 7px;
+//-         height: 22rem;
+//-         overflow-y: scroll;
+//-         overflow-x: scroll;
+//-         max-width:100rem ;
+//-         margin-bottom: 50px;
+//-     }
+//-     .first-row{
+//-         display: flex;
+//-         justify-content: space-between;
+//-         width: 150rem;
+//-         padding: 10px 10px;
+//-         font-size: 2rem;
+//-         text-transform: capitalize;
+//-         font-weight: bold;
+//-         color: #555;
+//-         border-bottom: 5px solid #7775;
+//-         /* margin-top: 10px; */
+//-     }
+//-     .real-transaction{
+//-         display: flex;
+//-         height: 50px;
+//-         width: 150rem;
+//-         justify-content: space-between;
+//-         padding: 3px 10px;
+//-         border-bottom: 2px solid #7775;
+//-     }
+//-     .real-transaction:hover{
+//-     cursor: pointer;
+//-     background-color: var(--color-brand--8);
+//-     }
+//-     .none{
+//-         display: none;
+//-     }
+//-     .display-transaction{
+//-         display: flex;
+//-         justify-content: space-between;
+//-         padding: 0 35%;
+//-     }
+//-     .chat-section{
+//-         height: 100%;
+//-     }
+//-     .display-chat{
+//-         height: 70%;
+//-         max-width: 100%;
+//-         border: 2px solid black;
+//-         display: flex;
+//-         flex-direction: column;
+//-         gap: 10px;
+//-     }
+//-     .message{
+//-         /* max-width:50% ; */
+//-         /* display: inline-block; */
+//-         height: fit-content;
+//-         /* display: block; */
+//-         /* display: flex; */
+//-         /* flex-direction: column; */
+//-         height: fit-content;
+//-         /* width: 50%; */
+//-     }
+//-     .user-message{
+//-         background-color: #6bd1a2;
+//-         /* text-align: left; */
+//-         text-align: left;
+//-         text-align: left;
+//-     }
+//-     .admin-message{
+//-         background-color:var(--color-brand--5);
+//-         /* text-align: right; */
+//-     }
+
+//-     #messageInput {
+//-         /* display: block; */
+//-         width:80% ;
+        
+//-         height: 6rem;
+//-         margin-top: 10px;
+//-         /* background-color: red; */
+//-         display: inline-block;
+//-         border-radius: 7px;
+//-         margin: 20px;
+//-         display: inline-block;
+//-     }
+
+
+//-     /* /////////////////////////////
+//-     .message-content {
+//-     display: flex;
+//-     align-items: center;
+//-     max-width: 70%;
+//-     padding: 8px;
+//-     border-radius: 8px;
+//-     }
+
+//-     .message-time {
+//-     font-size: 12px;
+//-     color: #888;
+//-     margin-left: 10px;
+//-     }
+
+//-     .message-content img {
+//-     max-width: 100%;
+//-     max-height: 200px;
+//-     border-radius: 8px;
+//-     margin-top: 8px;
+//-     }
+//-     */
+//-     /* //////////////////////////////////// */
+//-     .chat-box {
+//-         width: 100%;
+//-         height: 70rem;
+//-         background-color: #f5f5f5;
+//-         padding: 10px;
+//-         overflow-y:scroll;
+//-     }
+    
+//-     .message {
+//-         display: flex;
+//-         margin-bottom: 10px;
+//-     }
+    
+//-     .message-content {
+//-         max-width: 70%;
+//-         padding: 8px;
+//-         border-radius: 8px;
+//-         display: flex;
+//-         flex-direction: column;
+//-         align-items: center;
+//-     }
+//-     .message-time {
+//-         font-size: 12px;
+//-         color: #888;
+//-         margin-left: 10px;
+//-         align-self: flex-end;
+//-     }
+    
+//-     .incoming .message-content {
+//-         background-color: #e4e6eb;
+//-         align-self: flex-start;
+//-     }
+    
+//-     .outgoing .message-content {
+//-         background-color: #dcf8c6;
+//-         align-self: flex-end;
+//-     }
+    
+//-     .message-text {
+//-         display: block;
+//-     }
+    
+//-     .message-content img {
+//-         max-width: 100%;
+//-         max-height: 200px;
+//-         border-radius: 8px;
+//-         margin-top: 8px;
+//-     }
+//-     /* Responsive Styles */
+//-     @media (min-width: 768px) {
+//-         .chat-box {
+//-         max-width: 500px;
+//-         margin: 0 auto;
+//-         }
+//-     }
+    
+
+
+//-     /* //////////////////////// */
+//-     .message-input {
+//-         display: flex;
+//-         max-width: 50rem;
+//-         margin:0px auto;
+//-     }
+    
+//-     #message ,.p-key {
+//-         flex: 1;
+//-         padding: 5px;
+//-         border: 1px solid #ccc;
+//-         border-radius: 5px;
+//-         resize: vertical;
+//-         font-size: 18px;
+//-     }
+    
+//-     #send-button,.p-key-btn,button {
+//-         padding: 10px 20px;
+//-         background-color: #4CAF50;
+//-         color: white;
+//-         border: none;
+//-         border-radius: 5px;
+//-         margin-left: 10px;
+//-         cursor: pointer;
+//-     }
+    
+//-     #send-button:hover {
+//-         background-color: #45a049;
+//-     }
+//-     button:hover{
+//-         background-color: #1d7221;
+//-     }
+//-     .margin-buttom{
+//-         margin-bottom: 50px;
+//-     }
+//-     .p-Key-div{
+//-         display:flex;
+//-         flex-direction: column;
+//-         gap: 10px;
+//-         margin: 30px 10px;
+//-     }
+//-     .p-key{
+//-         border-style: none;
+//-         border-radius: 7px;
+//-         height: 30px;
+//-         background-color: #eee;
+//-         margin: 0px 10px;
+//-     }
+//-     .file-div{
+//-         display: flex;
+//-         align-items: center;
+//-         justify-content: center;
+//-         gap: 20px;
+//-         margin: 10px auto;
+//-         max-width: 50rem;
+//-         /* background-color: blue; */
+//-         height: 30px;
+//-         margin-bottom: 70px;
+//-     }
+//-     .imageMessage{
+//-         /* height: 100%; */
+//-         width: 60%;
+//-         background-color:#ddd;
+//-         border-radius: 4px;
+//-         border-style: none;
+
+//-     }
+    
+//-     /* //////////////////////////////// */
+//-     /* CSS styles for the loading spinner */
+//-     .spinner{
+//-     width: 100%;
+//-     height:100%;
+//-     background-color: #0005;
+//-     position: absolute;
+//-     display: flex;
+//-     /* justify-content: center; */
+//-     align-items: center;
+//-     /* background-color: ; */
+//-     /* top: 0%; */
+//-     /* left: 0%; */
+//-     /* z-index: 9998; */
+//-     display: none;
+//-     }
+
+//-     .small-spinner{
+//-     height: 30rem;
+//-     width: 30rem;
+//-     background-color: #eee;
+//-     position: fixed;
+//-     top: 50%;
+//-     left: 50%;
+//-     transform: translate(-50%,-50%);
+//-     border-radius: 7px;
+//-     /* display: none; */
+//-     }
+
+//-     #loading-spinner {
+//-     /* display: none; */
+//-     position: fixed;
+//-     top: 50%;
+//-     left: 50%;
+//-     transform: translate(-50%, -50%);
+//-     z-index: 9999;
+//-     /* background-color: red; */
+//-     /* display: none; */
+//-     }
+
+//-     @keyframes lds-spinner {
+//-     0% { transform: rotate(0deg); }
+//-     100% { transform: rotate(360deg); }
+//-     }
+
+//-     .lds-spinner {
+//-     display: inline-block;
+//-     position: relative;
+//-     width: 64px;
+//-     height: 64px;
+//-     }
+
+//-     .lds-spinner div {
+//-     box-sizing: border-box;
+//-     display: block;
+//-     position: absolute;
+//-     width: 51px;
+//-     height: 51px;
+//-     margin: 6px;
+//-     border: 6px solid #4CAF50;
+//-     border-radius: 50%;
+//-     animation: lds-spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+//-     border-color: #4CAF50 transparent transparent transparent;
+//-     }
+
+//-     .lds-spinner div:nth-child(1) {
+//-     animation-delay: -0.45s;
+//-     }
+
+//-     .lds-spinner div:nth-child(2) {
+//-     animation-delay: -0.3s;
+//-     }
+
+//-     .lds-spinner div:nth-child(3) {
+//-     animation-delay: -0.15s;
+//-     }
+//-     .off-bot{
+//-     background:rgba(223, 12, 12, 0.932) ;
+//-     }
+
+
+//-     @media (max-width: 780px) {
+//-     html {
+//-         /* font-size: 50.5%; */
+//-     }
+//-     .user-details{
+//-         /* display: none; */
+//-     }
+//-     .content{
+//-         /* display: grid; */
+//-         grid-template-columns:1fr;
+//-     }
+
+//-     }
+
+
+//-     header
+//-         img.loadImg(crossorigin='anonymous' src='http://31.220.31.111:3000/img/artmintLogo.png' alt='Artmint-logo')
+//-         span.admin-text Admin Dashbord
+//-         // <span class="logout">Logout</span>
+//-     .not-allowed
+//-         .login-box
+//-             p.login-text login
+//-             input#email-input.login-input(placeholder='Email')
+//-             input#password-input.login-input(placeholder='Password')
+//-             .login-btn Login
+//-     .spinner
+//-         .small-spinner
+//-             #loading-spinner.lds-spinner
+//-             div
+//-             div
+//-             div
+//-             div
+//-             div
+//-             div
+//-             div
+//-     .content.none
+//-         section.users
+//-         section.user-details
+//-     footer Copyright &copy; 2027 Artmint.shop .
+//-     script(src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
+//-     script(crossorigin='anonymous' src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js')
+//-     script(crossorigin="anonymous" src="http://127.0.0.1:3000/js/script.js")
+//-     script(type='module' src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js')
+//-     script(nomodule='' src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js')
+    
