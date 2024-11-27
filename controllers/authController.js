@@ -1,4 +1,3 @@
-const dotenv = require("dotenv");
 const path = require("path");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
@@ -22,13 +21,14 @@ const pug = require("pug");
 const { findOne, findOneAndUpdate } = require("../models/transactionModel");
 
 sgMail.setApiKey(
-  process.env.SENDGRID_API_KEY
+  "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"
 );
 
 // const transporter = nodemailer.createTransport(
 //   sendgridTransport({
 //     auth: {
-//       ai_kpey: process.env.SENDGRID_API_KEY
+//       api_key:
+//         "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",
 //     },
 //   })
 // );
