@@ -34,7 +34,7 @@ sgMail.setApiKey(
 // );
 
 // const domainName = "194.113.64.212:3000";
-const domainName = "https://goodnft-goodnft.gbfnmw.easypanel.host";
+const domainName = "goodnft-goodnft.gbfnmw.easypanel.host";
 
 const createToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
