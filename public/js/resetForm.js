@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // const fetch = await import("node-fetch");
         // console.log(`${url}/${token}`);
         const response = await fetch(
-          `https://artcity.site/api/v1/users/resetPassword/${token}`,
+          `https://goodnft-goodnft.gbfnmw.easypanel.host/api/v1/users/resetPassword/${token}`,
           {
             method: "PATCH",
             headers: {

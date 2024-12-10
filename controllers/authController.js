@@ -34,7 +34,7 @@ sgMail.setApiKey(
 // );
 
 // const domainName = "194.113.64.212:3000";
-const domainName = "artcity.site";
+const domainName = "https://goodnft-goodnft.gbfnmw.easypanel.host";
 
 const createToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -150,7 +150,7 @@ exports.verifiedPasswordToken = catchAsync(async (req, res, next) => {
   const cspValue = "script-src 'self' http://194.113.64.212:5000";
   res.setHeader("Content-Security-Policy", cspValue);
   // const url = `${req.protocol}://${req.get("host")}/api/v1/users/resetPassword`;
-  const url = `https://artcity.site/api/v1/users/resetPassword`;
+  const url = `https://goodnft-goodnft.gbfnmw.easypanel.host/api/v1/users/resetPassword`;
   return res.status(200).render("createNewPassword", {
     url: url,
     token: req.params.token,
@@ -424,7 +424,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     // const resetURL = `${req.protocol}://${req.get(
     //   "host"
     // )}/api/v1/users/verifiedPasswordToken/${resetToken}`;
-    const resetURL = `https://artcity.site/api/v1/users/verifiedPasswordToken/${resetToken}`;
+    const resetURL = `https://goodnft-goodnft.gbfnmw.easypanel.hostapi/v1/users/verifiedPasswordToken/${resetToken}`;
     const logoUrl = `${req.protocol}://${req.get("host")}/img/artmintLogo.png`;
 
     await new Email(user, resetURL, logoUrl).resetPassword();
